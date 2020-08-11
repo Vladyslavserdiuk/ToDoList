@@ -52,13 +52,21 @@ function App() {
             return el
         })
         setList(updatedList)
+    };
+    const movedUpList = (index) => {
+        const upList = [...list]
+        const currentElement = upList[index]
+        const previousEl = upList[index - 1]
+        upList[index] = previousEl
+        upList[index - 1] = currentElement;
+        setList(upList)
+    };
 
-    }
 
     return (
         <div>
             <TodoCreateForm create={create}/>
-            <TodoList markAsDone={markAsDone} list={list} doAgain={doAgain} remove={remove} toDoUpdate={toDoUpdate}/>
+            <TodoList markAsDone={markAsDone} list={list} doAgain={doAgain} remove={remove} toDoUpdate={toDoUpdate} movedUpList={movedUpList}/>
 
         </div>
     );

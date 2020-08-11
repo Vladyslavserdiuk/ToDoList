@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 function TodoListItem(props) {
     const [isEditMode, setIsEditMode] = useState(false)
-    const {todo, markAsDone, doAgain, remove, toDoUpdate} = props
+    const {todo, markAsDone, doAgain, remove, toDoUpdate, movedUpList, index} = props
 
 
     const isTodoDone = todo.done
@@ -25,6 +25,10 @@ function TodoListItem(props) {
         setIsEditMode(false)
     };
 
+    const todoUpMove = () => {
+        movedUpList(index)
+    }
+
     return (
         <div>
             {isEditMode ? (
@@ -40,6 +44,7 @@ function TodoListItem(props) {
                             <button onClick={() => doAgain(todoId)}>Do again</button>
                             <button onClick={() => remove(todoId)}> X</button>
                             <button onClick={() => setIsEditMode(true)}>Edit</button>
+                            <button onClick={movedUpList}>Up</button>
                         </li>
                     ) : (
                         <li style={titleStyle}>
@@ -47,6 +52,7 @@ function TodoListItem(props) {
                             <button onClick={() => markAsDone(todoId)}>Mark as Done</button>
                             <button onClick={() => remove(todoId)}> X</button>
                             <button onClick={() => setIsEditMode(true)}>Edit</button>
+                            <button onClick={movedUpList}>Up</button>
                         </li>)
                     }</div>
             )}
