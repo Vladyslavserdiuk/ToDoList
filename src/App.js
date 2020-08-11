@@ -5,7 +5,6 @@ import TodoList from "./TodoList";
 const initialList = [
     {id: 1, title: 'first Todo', done: false},
     {id: 2, title: 'second Todo', done: false},
-    {id: 3, title: 'third Todo', done: false}
 ]
 
 
@@ -47,10 +46,19 @@ function App() {
         setList(newList)
     };
 
+    const toDoUpdate = (todoId, newTodo) => {
+        const updatedList = [...list].map(el=>{
+            if (el.id === todoId) return {...el, title:newTodo}
+            return el
+        })
+        setList(updatedList)
+
+    }
+
     return (
         <div>
             <TodoCreateForm create={create}/>
-            <TodoList markAsDone={markAsDone} list={list} doAgain={doAgain} remove={remove}/>
+            <TodoList markAsDone={markAsDone} list={list} doAgain={doAgain} remove={remove} toDoUpdate={toDoUpdate}/>
 
         </div>
     );
