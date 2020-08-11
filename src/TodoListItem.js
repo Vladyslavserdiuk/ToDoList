@@ -3,7 +3,7 @@ import React from 'react';
 
 function TodoListItem(props) {
 
-    const {todo, markAsDone} = props
+    const {todo, markAsDone, doAgain, remove} = props
 
 
     const isTodoDone = todo.done
@@ -19,12 +19,14 @@ function TodoListItem(props) {
         {isTodoDone ? (
                 <li style={titleStyle}>
                     {todoTitle}
-                    <button>Do again</button>
+                    <button onClick={() => doAgain(todoId)}>Do again</button>
+                    <button onClick={() => remove(todoId)}> X </button>
                 </li>
             ) : (
                 <li style={titleStyle}>
                     {todoTitle}
                     <button onClick={() => markAsDone(todoId)}>Mark as Done</button>
+                    <button onClick={() => remove(todoId)}> X </button>
                 </li>)
         }
         </div>

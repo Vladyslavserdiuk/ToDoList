@@ -22,6 +22,15 @@ function App() {
         setList(newList)
     }
 
+    const doAgain = (todoId) => {
+        const newList = [...list].map(el => {
+            if (el.id === todoId)
+                return {...el, done: false}
+            return el;
+        })
+        setList(newList)
+    };
+
     const create = title => {
         console.log(title);
         const newItem = {
@@ -31,12 +40,17 @@ function App() {
         }
         const updateList = [...list, newItem]
         setList(updateList);
-    }
+    };
+
+    const remove = (todoId) => {
+        const newList = [...list].filter(el => el.id !== todoId)
+        setList(newList)
+    };
 
     return (
         <div>
             <TodoCreateForm create={create}/>
-            <TodoList markAsDone={markAsDone} list={list}/>
+            <TodoList markAsDone={markAsDone} list={list} doAgain={doAgain} remove={remove}/>
 
         </div>
     );

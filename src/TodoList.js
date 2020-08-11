@@ -3,12 +3,12 @@ import TodoListItem from './TodoListItem'
 
 
 function TodoList(props) {
-    const {markAsDone, list} = props
+    const {markAsDone, doAgain, list, remove} = props
 
 
     return (
         <div>
-            {list.map(el => <TodoListItem todo={el} markAsDone={markAsDone}/>)}
+            {list.map(el => <TodoListItem key={el.id} todo={el} markAsDone={markAsDone} doAgain={doAgain} remove={remove}/>)}
 
         </div>
     );
