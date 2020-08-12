@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import TodoCreateForm from "./TodoCreateForm";
 import TodoList from "./TodoList";
+import './App.css';
 
 const initialList = [
     {id: 1, title: 'first Todo', done: false},
@@ -64,7 +65,7 @@ function App() {
 
 
     return (
-        <div>
+        <div className="App">
             <TodoCreateForm create={create}/>
             <TodoList markAsDone={markAsDone} list={list} doAgain={doAgain} remove={remove} toDoUpdate={toDoUpdate} movedUpList={movedUpList}/>
 

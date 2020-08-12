@@ -13,7 +13,7 @@ function TodoCreateForm(props) {
         <div>
             TodoCreateForm
             <input type="text" value={inputValue} onChange={e => setInputValue(e.target.value)}/>
-            <button onClick={onCreate}>Create</button>
+            <button class="btn btn-outline-btn-secondary btn-sm" onClick={onCreate}>Create</button>
         </div>
     );
 }

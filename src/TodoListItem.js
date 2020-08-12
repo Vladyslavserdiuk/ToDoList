@@ -34,25 +34,25 @@ function TodoListItem(props) {
             {isEditMode ? (
                 <div>
                     <input onChange={inputHandler} value={newTodo}/>
-                    <button onClick={saveButtonHandler}>Save</button>
+                    <button class="btn btn-outline-dark btn-sm"  onClick={saveButtonHandler}>Save</button>
                 </div>
             ) : (
                 <div>
                     {isTodoDone ? (
                         <li style={titleStyle}>
                             {todoTitle}
-                            <button onClick={() => doAgain(todoId)}>Do again</button>
-                            <button onClick={() => remove(todoId)}> X</button>
-                            <button onClick={() => setIsEditMode(true)}>Edit</button>
-                            <button onClick={movedUpList}>Up</button>
+                            <button class="btn btn-outline-dark btn-sm" onClick={() => doAgain(todoId)}>Do again</button>
+                            <button class="btn btn-outline-danger btn-sm" onClick={() => remove(todoId)}> X</button>
+                            <button class="btn btn-outline-secondary btn-sm" onClick={() => setIsEditMode(true)}>Edit</button>
+                            <button class="btn btn-outline-secondary btn-sm" onClick={movedUpList}>Up</button>
                         </li>
                     ) : (
                         <li style={titleStyle}>
                             {todoTitle}
-                            <button onClick={() => markAsDone(todoId)}>Mark as Done</button>
-                            <button onClick={() => remove(todoId)}> X</button>
-                            <button onClick={() => setIsEditMode(true)}>Edit</button>
-                            <button onClick={movedUpList}>Up</button>
+                            <button class="btn btn-outline-secondary btn-sm" onClick={() => markAsDone(todoId)}>Mark as Done</button>
+                            <button class="btn btn-outline-danger btn-sm" onClick={() => remove(todoId)}> X</button>
+                            <button class="btn btn-outline-secondary btn-sm" onClick={() => setIsEditMode(true)}>Edit</button>
+                            <button class="btn btn-outline-secondary btn-sm" onClick={movedUpList}>Up</button>
                         </li>)
                     }</div>
             )}
